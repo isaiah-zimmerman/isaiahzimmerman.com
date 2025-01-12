@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isaiah Zimmerman</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap" rel="stylesheet">
+    <!-- font -->
+
+    <script src="intro.js"></script>
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="intro.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="colorMode.css">
+    <link rel="stylesheet" href="overlay.css">
+</head>
+<body>
+    <div class="content">
+        <div class="sidebar_spacer"></div>
+        <div class="sidebar">
+            <div id="color_theme_selector" onclick="cycleTheme()">
+                <div id="color_theme_selector_switch">
+                </div>
+            </div>
+            <div class="sidebar_content">
+                <div class="sidebar_element">
+                    <div class="sidebar_site">Home</div>
+                    <div class="sidebar_key">1</div>
+                </div>
+                <div class="sidebar_element">
+                    <div class="sidebar_site">Education</div>
+                    <div class="sidebar_key">2</div>
+                </div>
+                <div class="sidebar_element">
+                    <div class="sidebar_site">Experience</div>
+                    <div class="sidebar_key">3</div>
+                </div>
+                <div class="sidebar_element">
+                    <div class="sidebar_site">Projects</div>
+                    <div class="sidebar_key">4</div>
+                </div>
+            </div>
+        </div>
+        <div class="main_content">
+            <div class="name_container">
+                <h1 class="name_h1"><span id="first_name">Isaiah</span> <span id="last_name">Zimmerman</span></h1>
+                <div onclick="showAndPlayIntro()"><img src="assets/replay.svg" alt="" id="replay_intro"></div>
+            </div>
+
+            <h2 class="section_header">Education</h2>
+            <div class="section">
+                <div>Grove City College - Grove City, PA</div>
+                <div>Bachelor of Science in Computer Science</div>
+                <div>Minors in Artificial Intelligence & Machine Learning, Mathematics, and Cybersecurity</div>
+                <div>GPA: 3.96/4.00, Major QPA: 4.00/4.00</div>
+            </div>
+
+            <h2 class="section_header">Experience</h2>
+            <div class="section experience" id="experience"></div>
+
+            <div class="projects_header_container">
+                <h2 class="section_header">Projects</h2>
+                <img id="projects_filter" src="assets/filter.svg" onclick="toggleProjectsFilters()" alt="">
+            </div>
+            <div class="section">
+                <div class="projects_filter_tags" id="projects_filter_tags">
+                    <div id="projects_filter_tags_inner"></div>
+                </div>
+                <div class="projects_display" id="projects_display">
+                    <div class="projects_project">
+                        <div class="projects_project_title">GCAMOW.org</div>
+                        <ul>
+                            <li>Hi</li>
+                            <li>Hi</li>
+                            <li>Hi</li>
+                        </ul>
+                        <div>
+                            <div>HTML</div>
+                            <div>CSS</div>
+                            <div>JavaScript</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="temp_intro_bg" id="temp_intro_bg"></div>
+    <div class="intro_animation" id="intro_animation">
+        <div><span id="intro_hello">Hello</span> <span><img src="assets/hand.png" id="intro_hand" alt=""></span></div>
+        <div><span id="intro_im">I'm</span> <span id="intro_first">Isaiah</span></div>
+        <div id="intro_last">Zimmerman</div>
+    </div>
+    <div id="overlay">
+        sorting vizualizer. more info about that
+    </div>
+</body>
+</html>

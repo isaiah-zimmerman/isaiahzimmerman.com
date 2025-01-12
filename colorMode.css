@@ -1,0 +1,24 @@
+#color_theme_selector{
+    width: 60%;
+    margin: 1rem auto;
+    background-color: var(--theme-gray);
+    aspect-ratio: 2.5;
+    position: relative;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    /* border: 3px solid var(--theme-lig); */
+    transition: border-color 1s, color 1s, background-color 1s;
+}
+
+#color_theme_selector_switch{
+    position: absolute;
+    height: 80%;
+    aspect-ratio: 1;
+    top: 10%;
+    background-color: var(--theme-lightgray);
+    border-radius: 100%;
+    transition: left 0.25s, color 1s, background-color 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

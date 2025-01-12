@@ -1,0 +1,3 @@
+TODO: make this work better on mobile, change scaling
+TODO: make sidebar fixed, maybe hide it on mobile
+TODO: sometimes when opening site up (usually when first thing done in browser session), scaling is wrong and things are in the wrong place

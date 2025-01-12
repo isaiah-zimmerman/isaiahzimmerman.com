@@ -1,0 +1,9 @@
+#overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    outline: 1px solid black;
+    /* TODO: overlay system */
+    display: none;
+}

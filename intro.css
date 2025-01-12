@@ -1,0 +1,40 @@
+.intro_animation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--theme-white);
+    font-size: xx-large;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15vmin;
+    gap: 2vmin;
+    transition: background-color 2s;
+}
+
+#intro_first, #intro_last, #intro_hello, #intro_hand, #intro_im{
+    transition: font-size 2s, top 2s, left 2s, opacity 1s;
+    opacity: 0;
+}
+
+#intro_hello, #intro_hand, #intro_im{
+    font-weight: 400;
+}
+
+.temp_intro_bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--theme-white);
+}
+
+#intro_hand{
+    height: 12vmin;
+    width: 12vmin;
+}
