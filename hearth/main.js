@@ -56,9 +56,18 @@ document.addEventListener("DOMContentLoaded", function(){
         updateCheckoutsInDateRangeBox()
     })
 
+    document.getElementById('filter_by_date').addEventListener('click', () => {
+        if(sheetDataObjs.length > 0){
+            processSheetDataWithFilters(sheetDataObjs)
+        }
+
+        updateCheckoutsInDateRangeBox()
+    })
+
     document.getElementById('filter_by_date').addEventListener('click', updateDateRangeFilter)
 
     updateDateRangeFilter()
+    updateCheckoutsInDateRangeBox()
 })
 
 function updateCheckoutsInDateRangeBox(){
@@ -71,6 +80,14 @@ function updateCheckoutsInDateRangeBox(){
 }
 
 let sheetDataObjsCopy
+
+function processSheetDataObjsWithFilters(){
+    if(sheetDataObjs){
+        processSheetDataWithFilters(sheetDataObjs)
+    }else{
+        console.error("sheetDataObjs is undefined!")
+    }
+}
 
 function processSheetDataWithFilters(sheetDataObjs){
     sheetDataObjsCopy = []
@@ -118,8 +135,8 @@ function processSheetDataWithFilters(sheetDataObjs){
         // console.log((parseInt(document.getElementById("end_month").value) + 1) % 12)
 
         const endDate = new Date(
-            //year
-            document.getElementById('end_year').value,
+            //year, adds one if december
+            parseInt(document.getElementById('end_year').value) + (parseInt(document.getElementById("end_month").value) == 11 ? 1 : 0),
 
             //month index
             (parseInt(document.getElementById("end_month").value) + 1) % 12,
@@ -137,7 +154,6 @@ function processSheetDataWithFilters(sheetDataObjs){
         while(i < sheetDataObjs.length){
             const moveoutDate = parseDate(sheetDataObjs[i]["Moveout Date"])
 
-
             if(sheetDataObjs[i]["Moved Out"] == "Yes"){
                 const moveoutDate = parseDate(sheetDataObjs[i]["Moveout Date"])
                 if(dateInRange(startDate, endDate, moveoutDate)){
@@ -145,6 +161,12 @@ function processSheetDataWithFilters(sheetDataObjs){
                 }
             }
             i++
+        }
+
+        if(checkoutsOnlyFilter){
+            mrnsToInclude = mrnsToInclude.intersection(temp)
+        }else{
+            mrnsToInclude = temp
         }
     }
 
@@ -313,9 +335,9 @@ function haveHealthInsurance(lastCheck){
         
         if(val["Adult:"] == "Yes" && val["Child:"] == "Yes"){
             haveHI ++
-            notes.push(`${val["Patient Name"]} and children have health insurance.`)
+            notes.push(`<strong>${val["Patient Name"]}</strong> and children have health insurance.`)
         }else{
-            notes.push(`${val["Patient Name"]} and children DO NOT have health insurance.`)
+            notes.push(`<strong>${val["Patient Name"]}</strong> and children DO NOT have health insurance.`)
         }
         total ++
     }
@@ -334,9 +356,9 @@ function exitToPermanentHousing(lastCheck){
         // console.log(val["Exits to Permanent Housing Destinations:"])
         if(["Yes", "If Yes, Where:"].includes(val["Exits to Permanent Housing Destinations:"])){
             exitToPerm ++
-            notes.push(`${val["Patient Name"]} exits to permanent housing destination.`)
+            notes.push(`<strong>${val["Patient Name"]}</strong> exits to permanent housing destination.`)
         }else{
-            notes.push(`${val["Patient Name"]} DOES NOT exit to permanent housing destination.`)
+            notes.push(`<strong>${val["Patient Name"]}</strong> DOES NOT exit to permanent housing destination.`)
         }
         total ++
     }

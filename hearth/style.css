@@ -33,3 +33,8 @@
 .clickable_name:hover{
     text-decoration: underline;
 }
+
+
+#filter_by_date_div{
+    display: none;
+}
